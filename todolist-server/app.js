@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -19,6 +20,7 @@ mongoose.connect(dB, err =>{
     console.log('connection to database was succesful')
     
 })
+app.use(cors());
 
 app.use('/api/todos',todoRoutes);
 

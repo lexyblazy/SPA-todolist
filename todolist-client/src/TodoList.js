@@ -6,10 +6,10 @@ import './TodoList.css'
 class TodoList extends Component {
   render() {
     if(this.props.todos.length === 0){
-      return <div>Loading...</div>
+      return <div className='list'>Loading...</div>
     }
     const todos = this.props.todos.map((todo,index)=>{
-        return <TodoItem key = {index} todo={todo}/>
+        return <TodoItem key = {todo._id} todo={todo}/>
     })
 
     return <ul className="list"> {todos}</ul>;

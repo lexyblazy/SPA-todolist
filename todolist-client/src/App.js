@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import logo from './logo.svg';
 import Header from "./Header";
 import TodoList from "./TodoList";
-import TodoFrom from "./TodoForm";
+import TodoForm from "./TodoForm";
 import axios from "axios";
 
 class App extends Component {
@@ -12,7 +12,8 @@ class App extends Component {
       todos: []
     };
     this.getTodos = this.getTodos.bind(this);
-    this.getTodos();
+    this.addTodo = this.addTodo.bind(this);
+    setTimeout(this.getTodos,1000) 
   }
 
   getTodos() {
@@ -26,11 +27,21 @@ class App extends Component {
         console.log(e);
       });
   }
+  addTodo(todo){
+   
+    axios.post('/api/todos',{name:todo.name})
+    .then(res=>{
+      console.log(res.data);
+      this.getTodos();
+    }).catch(e=>{
+      console.log(e)
+    })
+  }
   render() {
     return (
       <div>
         <Header />
-        <TodoFrom />
+        <TodoForm addTodo={this.addTodo}/>
         <TodoList todos={this.state.todos} />
       </div>
     );
