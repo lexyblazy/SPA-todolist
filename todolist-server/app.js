@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/public`))
-app.use(express.static(`${__dirname}/views`))
+// app.use(express.static(`${__dirname}/views`))
 app.set('view engine','ejs');
 app.set('views',`${__dirname}/views`);
 //tell mongoose to use es6-promises
