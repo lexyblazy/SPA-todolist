@@ -6,7 +6,7 @@ class TodoItem extends Component{
     render(){
         const {todo} = this.props
         return (
-            <li className='task'>{todo}</li>
+            <li className='task'>{todo.name}</li>
         )
     }
 }
