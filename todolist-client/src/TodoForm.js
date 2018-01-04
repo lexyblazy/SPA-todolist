@@ -14,8 +14,11 @@ class TodoForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const {newTodo} = this.state;
-    this.props.addTodo({name:newTodo});
-    this.setState({value:''})
+    if(this.state.newTodo !== ''){
+      this.props.addTodo({name:newTodo});
+      this.setState({value:'',newTodo:''})
+    }
+   
   }
   handleChange(e){
     const value = e.target.value;

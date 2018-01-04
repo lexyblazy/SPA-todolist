@@ -13,23 +13,36 @@ class App extends Component {
     };
     this.getTodos = this.getTodos.bind(this);
     this.addTodo = this.addTodo.bind(this);
-    setTimeout(this.getTodos,1000) 
+    this.deleteTodo = this.deleteTodo.bind(this);
+    setTimeout(this.getTodos, 1000);
   }
 
   getTodos() {
     axios
       .get("/api/todos")
       .then(res => {
-        const todos = res.data
+        const todos = res.data;
         this.setState({ todos });
       })
       .catch(e => {
         console.log(e);
       });
   }
-  addTodo(todo){
-   
-    axios.post('/api/todos',{name:todo.name})
+
+  addTodo(todo) {
+    axios
+      .post("/api/todos", { name: todo.name })
+      .then(res => {
+        console.log(res.data);
+        this.getTodos();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  deleteTodo(todo){
+    axios.delete(`/api/todos/${todo._id}`)
     .then(res=>{
       console.log(res.data);
       this.getTodos();
@@ -41,8 +54,8 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <TodoForm addTodo={this.addTodo}/>
-        <TodoList todos={this.state.todos} />
+        <TodoForm addTodo={this.addTodo}  />
+        <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo} />
       </div>
     );
   }

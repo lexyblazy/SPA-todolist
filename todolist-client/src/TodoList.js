@@ -8,8 +8,9 @@ class TodoList extends Component {
     if(this.props.todos.length === 0){
       return <div className='list'>Loading...</div>
     }
+    const {deleteTodo}  = this.props;
     const todos = this.props.todos.map((todo,index)=>{
-        return <TodoItem key = {todo._id} todo={todo}/>
+        return <TodoItem key = {todo._id} todo={todo} deleteTodo={deleteTodo}/>
     })
 
     return <ul className="list"> {todos}</ul>;
