@@ -1,0 +1,21 @@
+{
+  "name": "spa-todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startserver":"node ./todolist-server/app.js",
+    "startclient":"cd todolist-client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lexyblazy/SPA-todolist.git"
+  },
+  "author": "lexy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lexyblazy/SPA-todolist/issues"
+  },
+  "homepage": "https://github.com/lexyblazy/SPA-todolist#readme"
+}
