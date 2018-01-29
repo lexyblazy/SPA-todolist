@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startserver":"node ./todolist-server/app.js",
-    "startclient":"cd todolist-client && npm start"
+    "startserver": "node ./todolist-server/app.js",
+    "startclient": "cd todolist-client && npm start",
+    "start": "concurrently \"npm run startserver\" \"npm run startclient\""
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/lexyblazy/SPA-todolist/issues"
   },
-  "homepage": "https://github.com/lexyblazy/SPA-todolist#readme"
+  "homepage": "https://github.com/lexyblazy/SPA-todolist#readme",
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  }
 }
