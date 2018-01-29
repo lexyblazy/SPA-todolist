@@ -19,6 +19,16 @@
     "url": "https://github.com/lexyblazy/SPA-todolist/issues"
   },
   "homepage": "https://github.com/lexyblazy/SPA-todolist#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "mongoose": "^4.13.2"
+  },
   "devDependencies": {
     "concurrently": "^3.5.1"
   }
